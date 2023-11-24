@@ -46,7 +46,7 @@ const form = useRef();
     <div>
     <Header></Header> <br />
     <div className={style.img}>
-      <Image width={400} height={750} src="/Image/compartimiento3.png" alt="Imagen comp3" />
+      <Image width={350} height={650} src="/Image/compartimiento3.png" alt="Imagen comp3" />
     </div>
     <CenteredContainer>
       <form className="form-container">

@@ -10,13 +10,14 @@ const util = require('util');
 const credentials = require('./credential.json'); 
 const axios = require ('axios');
 const { Console } = require('console');
+const session = require('express-session');
 
 const calendar = google.calendar({
   version: "v3", 
   auth: process.env.API_KEY,
 })
 
-const connection = mysql.createConnection(process.env.DATABASE_URL='mysql://o2qdvnpipq3i2vrfcszq:pscale_pw_I650pw964MTUOafhC4ljbPyLVEWpD4z30qVmBb1w0GS@aws.connect.psdb.cloud/proyecto?ssl={"rejectUnauthorized":true}');
+const connection = mysql.createConnection(process.env.DATABASE_URL='mysql://phplu66q2dzslrzfcvpq:pscale_pw_kpk3ORapqMQxkwQ63Euwo70Aqi2woitwAYpodiwbtNy@aws.connect.psdb.cloud/proyecto?ssl={"rejectUnauthorized":true}');
 connection.connect((err) => {
   if (err) {
     console.error('Error al conectarse a la base de datos:', err);
@@ -32,7 +33,15 @@ app.use(express.json());
 app.use(cors({
   origin: '*'
 }));
+const secret = crypto.randomBytes(64).toString('hex');
 
+
+app.use(session({
+  secret: secret, // Cambia esto por una cadena segura para firmar la sesión
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true } // Si estás usando HTTPS, cambia esto a true
+}));
 //sETUP
 
 const oauth2Client = new google.auth.OAuth2(
@@ -57,17 +66,29 @@ app.get('/google', (req, res) =>{
 
 //revisar aca la url no me lleva a ningun lado 
 app.get('/auth/google/callback', async (req, res)=>{
- res.send("holaaa")
- const code = req.query.code;
+  const code = req.query.code;
+  try {
+    const { tokens } = await oauth2Client.getToken(code);
+    oauth2Client.setCredentials(tokens);
+    req.session.tokens = tokens;
 
- const {tokens} = await oauth2Client.getAccessToken(code);
- oauth2Client.setCredentials(tokens);
- res.send({
-  msg: "logged in"
- })
- console.log("hola")
- 
+    // Redirigir a la página después de iniciar sesión correctamente
+    res.redirect('http://localhost:3000/Compartimento');
+  } catch (error) {
+    console.error('Error al obtener los tokens:', error);
+    res.status(500).send('Error al obtener los tokens');
+  }
+});
 
+app.get('/Compartimento', (req, res) => {
+  if (req.session.tokens) {
+    console.log("holaaaa ")
+    // El usuario está autenticado, realiza aquí las acciones apropiadas para usuarios autenticados
+    res.send('¡Usuario autenticado!');
+  } else {
+    // El usuario no está autenticado, redirige a la página de inicio de sesión o muestra un mensaje
+    res.redirect('/login');
+  }
 });
 
 //Cambiar con las variables de la bas de datp

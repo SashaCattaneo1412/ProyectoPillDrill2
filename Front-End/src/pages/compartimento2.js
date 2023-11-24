@@ -44,7 +44,7 @@ const Compartimiento2 = () => {
       <div>
       <Header></Header> <br />
       <div className={style.img}>
-        <Image width={400} height={750} src="/Image/compartimiento2.png" alt="Imagen comp1" />
+        <Image width={350} height={650} src="/Image/compartimiento2.png" alt="Imagen comp1" />
       </div>
       <CenteredContainer>
         <form className="form-container">
@@ -69,7 +69,7 @@ const Compartimiento2 = () => {
                 <br/>
             <div className={style.contenedorflotante}>
               <label htmlFor="fecha">Fecha de Incio </label>
-              <input type="text" id="FECHA" name="fecha" onChange={(event) => setFechaInicio(event.target.value)} />
+              <input type="date" id="FECHA" name="fecha" onChange={(event) => setFechaInicio(event.target.value)} />
             </div> <br />
           </div>
 

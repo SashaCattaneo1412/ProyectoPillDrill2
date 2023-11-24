@@ -38,7 +38,15 @@
 
 }
 
-.contenedorflotante input[type="text"]{
+.contenedorflotante input[type="text"] {
+  background: rgba(255, 254, 254, 1);
+  width: 200px;
+  height: 28px;
+  border-radius: 5px;
+  border: none;
+ }
+
+ .contenedorflotante[type="date"]{
   background: rgba(255, 254, 254, 1);
   width: 200px;
   height: 28px;

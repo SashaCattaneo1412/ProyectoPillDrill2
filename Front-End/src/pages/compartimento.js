@@ -11,7 +11,7 @@
       
       // Definir compartimento aquí o donde sea necesario
       const compartimento = '1';
-      router.push('/compartimento1');
+      router.push('/Compartimento1');
       try {
         const response = await fetch('http://localhost:5000/compartimento1');
         
@@ -31,7 +31,7 @@
       
       // Definir compartimento aquí o donde sea necesario
       const compartimento = '2';
-      router.push('/compartimento2');
+      router.push('/Compartimento2');
       try {
         const response = await fetch('http://localhost:5000/compartimento2');
         
@@ -51,7 +51,7 @@
       
       // Definir compartimento aquí o donde sea necesario
       const compartimento = '3';
-      router.push('/compartimento3');
+      router.push('/Compartimento3');
       try {
         const response = await fetch('http://localhost:5000/compartimento3');
         
@@ -71,7 +71,7 @@
       
       // Definir compartimento aquí o donde sea necesario
       const compartimento = '4';
-      router.push('/compartimento4');
+      router.push('/Compartimento4');
       try {
         const response = await fetch('http://localhost:5000/compartimento4');
     

@@ -57,7 +57,7 @@ function landing(props) {
                         </div>
                       </div>
                     </div>
-                    <div className="column-9">
+                    <div className="espacio1">
                       <div className="div-20">
                         <div className="div-21">
                           <div className="column-10">
@@ -344,12 +344,12 @@ function landing(props) {
                   }
                 }
                 
-                .column-9 {
+                .espacio1 {
                   display: flex;
                   flex-direction: column;
                   line-height: normal;
                   width: 50%;
-                  margin-left: 20px;
+                  margin-left: 40px;
                 }
                 @media (max-width: 991px) {
                   .column-9 {
@@ -413,7 +413,7 @@ function landing(props) {
                   flex-direction: column;
                   line-height: normal;
                   width: 80%;
-                  margin-left: 20px;
+                  margin-left: 10px;
                 }
                 @media (max-width: 991px) {
                   .column-11 {
