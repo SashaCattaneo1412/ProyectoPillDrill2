@@ -88,8 +88,8 @@
 
  .contenedorAbajo{
 
-  bottom: 160px;
-  right: 100px;
+  bottom: 100px;
+  right: 250px;
   position: fixed;
   
  }
@@ -122,4 +122,27 @@
   border-radius: 5px;
   border: 1px solid #ccc;
   padding: 5px;
+}
+@media (max-width: 900px) {
+  .img {
+    padding: 2px 10px; /* Reducción del padding */
+  }
+
+  .title {
+    padding: 3px 20px; /* Reducción del padding */
+    font-size: 30px; /* Tamaño de fuente más pequeño */
+  }
+}
+
+/* Estilos para el formulario */
+@media (max-width: 900px) {
+  .formGroup label {
+    width: 150px; /* Reducción del ancho de la etiqueta */
+    margin-right: 20px; /* Reducción del margen derecho */
+  }
+
+  .formGroup input[type="text"] {
+    width: 150px; /* Reducción del ancho del input */
+    padding: 5px 8px; /* Ajuste del padding */
+  }
 }

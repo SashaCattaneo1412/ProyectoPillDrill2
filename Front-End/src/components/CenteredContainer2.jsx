@@ -14,7 +14,7 @@ const CenteredContainer = ({ children }) => {
                width: 50%; /* Ancho deseado del contenedor */
                height: 400px;
                padding: 10px;
-
+               background-color: blue;
                @media (max-width: 768px) {
                 .side-container {
                   width: 90%; /* Reducir el ancho en pantallas más pequeñas */

@@ -7,6 +7,8 @@ import PhotoCarousel from '../components/PhotoCarousel';
 import { useRouter } from 'next/router';
 import HeaderB from '../components/HeaderB';
 
+
+
 const images = ['/Image/1.png', '/Image/3.png', '/Image/2.png'];
 
 
@@ -16,6 +18,8 @@ const InicioSesion = () => {
   const form = useRef();
   const [mailfront, setMail] = useState('');
   const [passwordfront, setPassword] = useState('');
+  const [ eventName, setEventName ] = useState("");
+
 
   const iniciosesion = async (e) => {
     e.preventDefault();
@@ -34,7 +38,7 @@ const InicioSesion = () => {
       if (data.success) {
         // Los datos coinciden
         
-        router.push('/compartimento');
+        router.push('/Compartimento');
       
         //history.push('/compartimiento'); // Esto requiere acceso a la variable history
       } else {
@@ -51,7 +55,7 @@ const InicioSesion = () => {
     <div>
        <HeaderB/>
       <PhotoCarousel images={images} />
-      <form ref={form}>
+             <form ref={form}>
         <div className={style.flexbox}>
           <div className={style.contenedorflotante}>
             <input
@@ -90,20 +94,14 @@ const InicioSesion = () => {
             
           </div>
           </div>
-          <div className={style.container2}>
-          <button className={style.IR} onClick={iniciosesion}>
-            IR
-          </button>
-          </div>
        
       </form>
+
       <div className={style.btnPosition}>
-      <button
-      className={style.google} 
-      onClick={() => {router.push('http://localhost:5000/google')}} >
-      <img className={style.icon} src="https://www.drupal.org/files/issues/2020-01-26/google_logo.png"/>
-      <div className={style.contenidoEncima}>INICIA SESION CON GOOGLE</div>
-      </button>
+           
+      <button className={style.IR} onClick={iniciosesion}>
+            IR
+          </button>
       </div>
     </div>
   );

@@ -10,14 +10,18 @@ const util = require('util');
 const credentials = require('./credential.json'); 
 const axios = require ('axios');
 const { Console } = require('console');
-const session = require('express-session');
+//const session = require('express-session');
 
+
+
+
+/*
 const calendar = google.calendar({
   version: "v3", 
   auth: process.env.API_KEY,
 })
-
-const connection = mysql.createConnection(process.env.DATABASE_URL='mysql://phplu66q2dzslrzfcvpq:pscale_pw_kpk3ORapqMQxkwQ63Euwo70Aqi2woitwAYpodiwbtNy@aws.connect.psdb.cloud/proyecto?ssl={"rejectUnauthorized":true}');
+*/
+const connection = mysql.createConnection(process.env.DATABASE_URL='mysql://8995shipxhiehlwqtccm:pscale_pw_JrGZwAiidWauDlExQRAPXgx7ya3WT6qojnSBKFCPuik@aws.connect.psdb.cloud/proyecto?ssl={"rejectUnauthorized":true}');
 connection.connect((err) => {
   if (err) {
     console.error('Error al conectarse a la base de datos:', err);
@@ -33,11 +37,11 @@ app.use(express.json());
 app.use(cors({
   origin: '*'
 }));
-const secret = crypto.randomBytes(64).toString('hex');
 
 
+/*
 app.use(session({
-  secret: secret, // Cambia esto por una cadena segura para firmar la sesión
+  secret: "funca",
   resave: false,
   saveUninitialized: true,
   cookie: { secure: true } // Si estás usando HTTPS, cambia esto a true
@@ -68,14 +72,18 @@ app.get('/google', (req, res) =>{
 app.get('/auth/google/callback', async (req, res)=>{
   const code = req.query.code;
   try {
+    console.log(code);
     const { tokens } = await oauth2Client.getToken(code);
+    console.log("a")
     oauth2Client.setCredentials(tokens);
+    console.log("b")
     req.session.tokens = tokens;
-
+    console.log("c")
     // Redirigir a la página después de iniciar sesión correctamente
     res.redirect('http://localhost:3000/Compartimento');
+    console.log("d")
   } catch (error) {
-    console.error('Error al obtener los tokens:', error);
+    console.error('Error al obtener los tokens:', error);   
     res.status(500).send('Error al obtener los tokens');
   }
 });
@@ -83,43 +91,59 @@ app.get('/auth/google/callback', async (req, res)=>{
 app.get('/Compartimento', (req, res) => {
   if (req.session.tokens) {
     console.log("holaaaa ")
-    // El usuario está autenticado, realiza aquí las acciones apropiadas para usuarios autenticados
+     
     res.send('¡Usuario autenticado!');
   } else {
     // El usuario no está autenticado, redirige a la página de inicio de sesión o muestra un mensaje
     res.redirect('/login');
   }
 });
-
+*/
 //Cambiar con las variables de la bas de datp
 app.get('/schedule_event', async (req, res)=>{
 
-  /*
+  /* lo que saque de los documentos de google
 
-  console.log(oauth2Client.credentials.access_token);
-  
-  await calendar.events.insert({
-  calendarId: "primary", 
-  auth: oauth2Client,
+var event = {
+  'summary': 'Google I/O 2015',
+  'location': '800 Howard St., San Francisco, CA 94103',
+  'description': 'A chance to hear more about Google\'s developer products.',
+  'start': {
+    'dateTime': '2015-05-28T09:00:00-07:00',
+    'timeZone': 'America/Los_Angeles',
+  },
+  'end': {
+    'dateTime': '2015-05-28T17:00:00-07:00',
+    'timeZone': 'America/Los_Angeles',
+  },
+  'recurrence': [
+    'RRULE:FREQ=DAILY;COUNT=2'
+  ],
+  'attendees': [
+    {'email': 'lpage@example.com'},
+    {'email': 'sbrin@example.com'},
+  ],
+  'reminders': {
+    'useDefault': false,
+    'overrides': [
+      {'method': 'email', 'minutes': 24 * 60},
+      {'method': 'popup', 'minutes': 10},
+    ],
+  },
+};
 
-  requestBody:{
-    summary: "This is a test event", 
-     description: "cambiar por valores ", 
-     start:{
-      dateTime: "",
-      timeZone : "America/Argentina"
-     }, 
-     end:{
-      dateTime: "",
-      timeZone : "America/Argentina"
-     }
+calendar.events.insert({
+  auth: auth,
+  calendarId: 'primary',
+  resource: event,
+}, function(err, event) {
+  if (err) {
+    console.log('There was an error contacting the Calendar service: ' + err);
+    return;
   }
- })
-
- res.send({
-  msg: "listooo"
- })
- */
+  console.log('Event created: %s', event.htmlLink);
+});
+*/
 })
 
 
@@ -146,6 +170,7 @@ app.post("/registrarse", (req, res) => {
       // Manejar el error
     } else {
       console.log('Actualización exitosa. Filas afectadas:', results.affectedRows);
+      res.status(200).send('Registro exitoso');
       // Hacer algo con los resultados
     }
   })

@@ -3,6 +3,8 @@ import Link from 'next/link';
 import style from '../styles/Registrarse.module.css';
 import Button from '../components/Buttons';
 import Header from '../components/Header3';
+import { Router } from 'next/router';
+import { useRouter } from 'next/router';
 
 const Registrarse = () => {
   const form = useRef();
@@ -11,6 +13,7 @@ const Registrarse = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState(""); // Nuevo estado para la confirmación de la contraseña
 
+  const router = useRouter();
   //ccheckbox
   const [isChecked, setIsChecked] = useState(false);
 
@@ -33,9 +36,13 @@ const Registrarse = () => {
       });
 
       if (response.ok) {
-        // La solicitud fue exitosa, puedes realizar alguna acción aquí si es necesario.
-        console.log('Registro exitoso');
-        history.push('/InicioSesion');
+        // La solicitud fue exitosa, manejar la respuesta del servidor
+        const data = await response.text();
+        console.log('Respuesta del servidor:', data);
+        // Realizar la redirección si la respuesta es exitosa
+        if (data === 'Registro exitoso') {
+          router.push('/InicioSesion');
+        }
       } else {
         // La solicitud falló, manejar el error aquí si es necesario.
         console.error('Error al registrar');

@@ -6,11 +6,11 @@ const CenteredContainer = ({ children }) => {
       {children}
       <style jsx>{`
         .centered-container {
-          width: 70%; /* Ancho deseado del contenedor */
+          width: 67%; /* Ancho deseado del contenedor */
           margin: 50px auto; /* Centrar horizontalmente en la pantalla */
           display: flex; /* Usar flexbox para centrar verticalmente los elementos */
-          justify-content: center; /* Centrar horizontalmente */
           align-items: center; /* Centrar verticalmente */
+          
           height: 400px; /* Altura deseada del contenedor */
           background: rgba(255, 255, 255, 0.15);
           backdrop-filter: blur(2px);

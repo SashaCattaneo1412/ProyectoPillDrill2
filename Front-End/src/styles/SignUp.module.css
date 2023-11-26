@@ -17,6 +17,8 @@
   height: 60px;
   border-radius: 2px;
   box-shadow: 0 3px 4px 0 rgba(0,0,0,.25);
+  margin-bottom: 5px;
+  margin-top: 5px;
   
  }
  .contenidoEncima{
@@ -27,12 +29,13 @@
   letter-spacing: 0.2px;
  }
 
- .btnPosition{
-  margin-top: 10px;
-  display: flex; /* Usa flexbox para alinear elementos */
-  justify-content: center; /* Centra horizontalmente */
-  align-items: center; /* Centra verticalmente */
- }
+ .btnPosition {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra los elementos horizontalmente */
+}
+
+
 
  .icon{
   width: 100%;
@@ -58,7 +61,8 @@
  .IR
 {
 
- 
+  
+   margin-top: 5px; /* Espacio entre el segundo botón y el anterior */
   display: flex;
   justify-content: center; /* Centrar horizontalmente */
   cursor: pointer; /* Cambiar cursor al pasar el ratón */

@@ -5,13 +5,24 @@
 
   function Compartimiento() {
     const router = useRouter();
+    const sessionData = router.query.sessionData ? JSON.parse(router.query.sessionData) : null;
     
+
+    console.log(sessionData)
+
     const compartimento1 = async (e) => {
       e.preventDefault();
       
+      
       // Definir compartimento aquí o donde sea necesario
       const compartimento = '1';
-      router.push('/Compartimento1');
+      router.push({
+        pathname: '/Compartimento1',
+      
+      });
+
+      
+     
       try {
         const response = await fetch('http://localhost:5000/compartimento1');
         
