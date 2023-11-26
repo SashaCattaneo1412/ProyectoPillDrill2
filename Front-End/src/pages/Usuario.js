@@ -89,7 +89,7 @@ function Usuario() {
           ¿Olvidaste tu contraseña?
           </label>
             <Link className={style.LINK} href="/RecuperarContraseña">Recupérala</Link> <br/>
-
+               <div className={style.buttonPosition}>
               {isEditing ? (
                 <button className={style.editar} onClick={handleSave}>
                   Guardar
@@ -99,6 +99,7 @@ function Usuario() {
                   Editar
                 </button>
               )}
+              </div>
             </div>
           </div>
     </CenteredContainer>

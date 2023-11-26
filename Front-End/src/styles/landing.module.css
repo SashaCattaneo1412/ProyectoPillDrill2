@@ -35,7 +35,7 @@
     margin-left: 100px; /* Puedes ajustar el valor según el espacio que desees */
     text-align: center;
     border-radius: 15px;
-    width: 500px;
+    width: 550px;
     margin-top: 10px;
     background-color: rgba(230, 221, 214, 0.17);
     padding: 10px 20px 10px 9px;
@@ -78,7 +78,7 @@
     margin-top: 10px;
     padding: 15px 15px; /* Ajusta el padding para reducir el tamaño */
     font: 500 25px/30px Lexend, -apple-system, Roboto, Helvetica, sans-serif; /* Reducción del tamaño del texto */
-    width: 500px;
+    width: 550px;
     height: 180px;
     margin-left: 100px;
   }
@@ -101,6 +101,8 @@
     margin-right: 100px; /* Elimina cualquier margen derecho adicional */
     margin-top: 10px;
     max-height: 300px;
+    justify-content: center;
+    
   }
   .container3{
     

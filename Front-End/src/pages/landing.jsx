@@ -251,7 +251,7 @@ function landing(props) {
                   display: flex;
                   flex-direction: column;
                   line-height: normal;
-                  width: 50%;
+                  width: 55%;
                   margin-left: 0px;
                 }
                 @media (max-width: 991px) {
@@ -360,7 +360,7 @@ function landing(props) {
                   border-radius: 15px;
                   background-color: #e6ddd6;
                   flex-grow: 1;
-                  width: 65%;
+                  width: 70%;
                   margin: 0 auto;
                   padding: 20px 20px 20px 37px;
                 }
@@ -453,8 +453,8 @@ function landing(props) {
                 .div-25 {
                   align-self: center;
                   margin-top: 50px;
-                  width: 100%;
-                  max-width: 1300px;
+                  width: 950%;
+                  max-width: 1400px;
                 }
                 @media (max-width: 991px) {
                   .div-25 {
@@ -486,12 +486,13 @@ function landing(props) {
                   }
                 }
                 .div-27 {
+                
                   border-radius: 15px;
                   background-color: #e6ddd6;
                   flex-grow: 1;
-                  width: 65%;
+                  width: 70%;
                   margin: 0 auto;
-                  padding: 16px 40px;
+                  padding: 10px 10px;
                 }
                 @media (max-width: 991px) {
                   .div-27 {
